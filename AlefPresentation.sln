@@ -3,7 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlefPresentation", "AlefPresentation\AlefPresentation.csproj", "{68802CF6-CE6C-4095-9B99-C0583F3C2DE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlefPresentation.Model", "AlefPresentation.Model\AlefPresentation.Model.csproj", "{1D797AFA-558F-4A60-B05A-DC2A19E9E1F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlefPresentation.Client", "AlefPresentation.Client\AlefPresentation.Client.csproj", "{C80617F5-5618-49FD-BD6F-8F5A008684DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlefPresentation.DataAccess", "AlefPresentation.DataAccess\AlefPresentation.DataAccess.csproj", "{593EFECF-C152-45F3-A8AB-253EE27CC7E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{6EEAC3C9-C12F-4872-A378-512738F7E1D2}"
+	ProjectSection(SolutionItems) = preProject
+		AlefPresentation\Dependencies Graph.png = AlefPresentation\Dependencies Graph.png
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlefPresentation.Api", "AlefPresentation.Api\AlefPresentation.Api.csproj", "{5E2B83E6-686F-4F73-B367-79215E48A7C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +22,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{68802CF6-CE6C-4095-9B99-C0583F3C2DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68802CF6-CE6C-4095-9B99-C0583F3C2DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68802CF6-CE6C-4095-9B99-C0583F3C2DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68802CF6-CE6C-4095-9B99-C0583F3C2DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D797AFA-558F-4A60-B05A-DC2A19E9E1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D797AFA-558F-4A60-B05A-DC2A19E9E1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D797AFA-558F-4A60-B05A-DC2A19E9E1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D797AFA-558F-4A60-B05A-DC2A19E9E1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C80617F5-5618-49FD-BD6F-8F5A008684DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C80617F5-5618-49FD-BD6F-8F5A008684DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C80617F5-5618-49FD-BD6F-8F5A008684DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C80617F5-5618-49FD-BD6F-8F5A008684DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{593EFECF-C152-45F3-A8AB-253EE27CC7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{593EFECF-C152-45F3-A8AB-253EE27CC7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{593EFECF-C152-45F3-A8AB-253EE27CC7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{593EFECF-C152-45F3-A8AB-253EE27CC7E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E2B83E6-686F-4F73-B367-79215E48A7C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2B83E6-686F-4F73-B367-79215E48A7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2B83E6-686F-4F73-B367-79215E48A7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2B83E6-686F-4F73-B367-79215E48A7C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

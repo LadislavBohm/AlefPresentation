@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AlefPresentation.Model.Presentation">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <AssociationLine Name="Lecturer" Type="AlefPresentation.Model.Lecturer" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.625" Y="2.873" />
+        <Point X="7.625" Y="2.948" />
+        <Point X="7.619" Y="2.948" />
+        <Point X="7.619" Y="4.481" />
+        <Point X="9.25" Y="4.481" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAiAEAAAAAABAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Presentation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Lecturer" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Attendees" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AlefPresentation.Model.PresentationAttendee">
+    <Position X="3.75" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>PresentationAttendee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlefPresentation.Model.Lecturer">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Lecturer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
