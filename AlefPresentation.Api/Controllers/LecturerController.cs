@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -10,6 +11,7 @@ using AlefPresentation.Api.ActionFilters;
 using AlefPresentation.DataAccess;
 using AlefPresentation.DataAccess.Interfaces;
 using AlefPresentation.Model;
+using Microsoft.AspNet.WebApi.Extensions.Compression.Server.Attributes;
 using WebApi.OutputCache.V2;
 
 namespace AlefPresentation.Api.Controllers
@@ -45,6 +47,36 @@ namespace AlefPresentation.Api.Controllers
             await Task.Delay(2000).ConfigureAwait(false);
 
             return _lecturerService.GetAll().Where(l => l.LastName.Contains(name) || l.FirstName.Contains(name));
+        }
+
+        [HttpGet,Route("uncompressed")]
+        [Compression(Enabled = false)]
+        public IEnumerable<Lecturer> GetUncompressedData()
+        {
+            var result = new List<Lecturer>();
+
+            do
+            {
+                result.AddRange(_lecturerService.GetAll());
+            } while (result.Count < 10000);
+
+            return result;
+        }
+
+        [HttpGet,Route("compressed")]
+        [Compression(Enabled = true)]
+        public IEnumerable<Lecturer> GetCompressedData()
+        {
+            //test ve Fiddleru: Accept-Encoding: gzip;
+            //http://checkgzipcompression.com/?url=http%3A%2F%2Fseznam.cz
+            var result = new List<Lecturer>();
+
+            do
+            {
+                result.AddRange(_lecturerService.GetAll());
+            } while (result.Count < 10000);
+
+            return result;
         }
     }
 }
