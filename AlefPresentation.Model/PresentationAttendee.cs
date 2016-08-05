@@ -11,5 +11,10 @@ namespace AlefPresentation.Model
         public int Id { get; set; }
         public string FullName { get; set; }
         public string JobPosition { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, FullName: {FullName}, JobPosition: {JobPosition}";
+        }
     }
 }

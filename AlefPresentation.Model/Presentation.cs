@@ -18,5 +18,10 @@ namespace AlefPresentation.Model
         public Lecturer Lecturer { get; set; }
 
         public ICollection<PresentationAttendee> Attendees { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Title: {Title}, Description: {Description}\nStartDate: {StartDate}, Duration: {Duration}\nLecturer: {Lecturer}\nAttendees:\n{string.Join("\t\n", Attendees)}";
+        }
     }
 }
