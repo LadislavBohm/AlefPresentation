@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Net.Http.Extensions.Compression.Core.Compressors;
 using System.Net.Http.Formatting;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using AlefPresentation.Api.ActionFilters;
-using Newtonsoft.Json;
+using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
 using Newtonsoft.Json.Serialization;
 
 namespace AlefPresentation.Api
@@ -16,6 +13,9 @@ namespace AlefPresentation.Api
         {
             //globalni nastaveni CORS
             //config.EnableCors(new EnableCorsAttribute("*","*","*"));
+
+            //globalni nastaveni komprese
+            GlobalConfiguration.Configuration.MessageHandlers.Insert(0, new ServerCompressionHandler(new GZipCompressor(), new DeflateCompressor()));
 
             ConfigFormatters(config);
 
@@ -28,14 +28,14 @@ namespace AlefPresentation.Api
         {
             //vlastni konfigurace formatteru
 
-            //config.Formatters.Clear();
+            config.Formatters.Clear();
 
-            //var jsonSerializer = new JsonMediaTypeFormatter
-            //{
-            //    SerializerSettings = {ContractResolver = new CamelCasePropertyNamesContractResolver()}
-            //};
+            var jsonSerializer = new JsonMediaTypeFormatter
+            {
+                SerializerSettings = { ContractResolver = new CamelCasePropertyNamesContractResolver() }
+            };
 
-            //config.Formatters.Add(jsonSerializer);
+            config.Formatters.Add(jsonSerializer);
 
             //XML formatter
 
