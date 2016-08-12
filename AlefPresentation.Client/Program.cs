@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AlefPresentation.Model;
+using Newtonsoft.Json;
 using RestSharp;
+using RestSharp.Authenticators;
+using RestSharp.Serializers;
 
 namespace AlefPresentation.Client
 {
@@ -12,23 +16,56 @@ namespace AlefPresentation.Client
     {
         static void Main(string[] args)
         {
-            var client = new RestClient("http://localhost:2883/api");
-            var getRequest = new RestRequest("lecturer",Method.GET);
+            var client = CreateClient();
+            var lecturerRequest = new RestRequest("lecturer", Method.GET);
+            var lecturerResponse = client.Execute<List<Lecturer>>(lecturerRequest);
 
-            var result = client.Execute<List<Lecturer>>(getRequest);
-
-            foreach (var lecturer in result.Data)
+            foreach (var lecturer in lecturerResponse.Data)
             {
                 Console.WriteLine(lecturer);
             }
 
+            Console.WriteLine("\n\n");
 
-            var postRequest = new RestRequest("lecturer",Method.PUT);
+            var presentationRequest = new RestRequest("presentation/nonempty",Method.GET);
+            var presentationResponse = client.Execute<List<Presentation>>(presentationRequest);
+            var presentations = JsonConvert.DeserializeObject<IList<Presentation>>(presentationResponse.Content);
 
+            foreach (var presentation in presentations)
+            {
+                Console.WriteLine(presentation + "\n");
+            }
 
-            var postResult = client.Execute(postRequest);
+            Console.WriteLine("\n\n");
 
-            Console.ReadLine();
+            var deleteRequest = new RestRequest("presentation",Method.DELETE);
+
+            //smazani jen jedne prezentace
+            deleteRequest.AddQueryParameter("id", presentations.First().Id.ToString());
+
+            //smazani vsech prezentaci
+            //deleteRequest.AddJsonBody(presentations.Select(p => p.Id.ToString()));
+
+            var deleteResponse = client.Execute(deleteRequest);
+            presentationResponse = client.Execute<List<Presentation>>(presentationRequest);
+            presentations = JsonConvert.DeserializeObject<IList<Presentation>>(presentationResponse.Content);
+
+            foreach (var presentation in presentations)
+            {
+                Console.WriteLine(presentation + "\n");
+            }
+
+            Console.ReadKey();
+        }
+
+        private static IRestClient CreateClient()
+        {
+            var result = new RestClient("http://localhost:2883/api")
+            {
+                Authenticator = new HttpBasicAuthenticator("admin", "123456")
+            };
+            
+            return result;
         }
     }
 }
