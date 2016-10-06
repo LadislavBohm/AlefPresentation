@@ -1,0 +1,54 @@
+﻿@model AlefPresentation.Mvc.ViewModels.LecturerViewModel
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h4>Formular s validaci</h4>
+
+@using (var form = Html.BeginForm("Add","Forms", FormMethod.Post))
+{
+    <div class="form form-horizontal" style="margin-left: 20px;">
+        <div class="row">
+            <div class="form-group col-md-3">
+                @Html.DisplayNameFor(l => l.FirstName)
+                @Html.TextBoxFor(l => l.FirstName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                @Html.DisplayNameFor(l => l.LastName)
+                @Html.TextBoxFor(l => l.LastName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3">
+                @Html.DisplayNameFor(l => l.Email)
+                @Html.TextBoxFor(l => l.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach (var error in ViewData.ModelState)
+                    {
+                        foreach (var message in error.Value.Errors.Select(e => e.ErrorMessage))
+                        {
+                            <li>@message</li>
+                        }
+                    }
+                </ul>
+            </div>
+        }
+        
+        @if (Model.OperationSuccessful == true)
+        {
+            <div class="alert alert-success">
+                <p>Lecturer was successfully added.</p>
+            </div>
+        }
+
+        <button type="submit" class="btn btn-default">Add</button>
+    </div>
+}

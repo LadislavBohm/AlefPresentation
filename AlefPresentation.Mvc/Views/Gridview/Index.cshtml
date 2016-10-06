@@ -1,0 +1,54 @@
+﻿@model ICollection<AlefPresentation.Model.Presentation>
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var searchTerm = string.IsNullOrWhiteSpace(ViewBag.SearchTerm) ? string.Empty : ViewBag.SearchTerm.ToString();
+}
+
+<div>
+    @using (var form = Html.BeginForm("Search", "Gridview", FormMethod.Get))
+    {
+        <div class="form form-horizontal" style="min-height: 60px;">
+            <div class="col-md-2" style="margin-bottom: 20px;">
+                <label for="searchInput" class="control-label col-md-3">Search: </label>
+                <input id="searchInput" name="term" type="text" class="form-control" style="display: inline-block; width: 200px;"
+                       value="@searchTerm"/>
+            </div>
+            <div class="col-md-1">
+                <input type="submit" class="btn btn-default" value="Search" />
+            </div>
+        </div>
+    }
+</div>
+
+<div>
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-warning">
+            <p>Nenalezeny zadne vysledky</p>
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Start Date</th>
+                    <th>Duration in minutes</th>
+                    <th>Lecturer</th>
+                </tr>
+            </thead>
+            @foreach (var presentation in Model)
+            {
+                <tr>
+                    <td>@presentation.Id</td>
+                    <td>@presentation.Title</td>
+                    <td>@presentation.StartDate</td>
+                    <td>@presentation.Duration.TotalMinutes</td>
+                    <td>@presentation.Lecturer.FirstName @presentation.Lecturer.LastName</td>
+                </tr>
+            }
+        </table>
+    }
+</div>

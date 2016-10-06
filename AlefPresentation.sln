@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlefPresentation.Model", "AlefPresentation.Model\AlefPresentation.Model.csproj", "{1D797AFA-558F-4A60-B05A-DC2A19E9E1F5}"
 EndProject
@@ -11,10 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlefPresentation.DataAccess
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{6EEAC3C9-C12F-4872-A378-512738F7E1D2}"
 	ProjectSection(SolutionItems) = preProject
-		AlefPresentation\Dependencies Graph.png = AlefPresentation\Dependencies Graph.png
+		Dependencies Graph.png = Dependencies Graph.png
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlefPresentation.Api", "AlefPresentation.Api\AlefPresentation.Api.csproj", "{5E2B83E6-686F-4F73-B367-79215E48A7C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlefPresentation.Mvc", "AlefPresentation.Mvc\AlefPresentation.Mvc.csproj", "{613612B9-1EB8-4EBA-B252-5174416DC8FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{5E2B83E6-686F-4F73-B367-79215E48A7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E2B83E6-686F-4F73-B367-79215E48A7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E2B83E6-686F-4F73-B367-79215E48A7C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{613612B9-1EB8-4EBA-B252-5174416DC8FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613612B9-1EB8-4EBA-B252-5174416DC8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613612B9-1EB8-4EBA-B252-5174416DC8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613612B9-1EB8-4EBA-B252-5174416DC8FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

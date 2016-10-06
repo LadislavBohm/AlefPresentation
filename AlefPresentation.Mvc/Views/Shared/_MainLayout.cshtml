@@ -1,0 +1,41 @@
+﻿@using AlefPresentation.Mvc.Helpers
+<!DOCTYPE html>
+@{
+    var user = string.IsNullOrEmpty(Context.User.Identity.Name) ? "Unknown" : Context.User.Identity.Name;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/bower-bootswatch-paper/paper.css")"/>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/Styles/General.css")"/>
+    @RenderSection("styles", required:false)
+</head>
+<body>
+<div>
+    <div id="mainMenu">
+        <ul class="nav nav-pills" style="display: inline-block;">
+            <li class="@Html.IsSelected("Home")"><a href="@Url.Action("Index","Home")">Home</a></li>
+            <li class="@Html.IsSelected("Forms")"><a href="@Url.Action("Index","Forms")">Forms</a></li>
+            <li class="@Html.IsSelected("Gridview")"><a href="@Url.Action("Index","Gridview")">Gridview</a></li>
+            <li class="@Html.IsSelected("Notifications")"><a href="@Url.Action("Index","Notifications")">Notifications</a></li>
+            <li class="@Html.IsSelected("Separated")"><a href="@Url.Action("Index","Separated")">Separated</a></li>
+        </ul>
+        <div class="pull-right">
+            Vítejte @user
+        </div>
+    </div>
+    <hr/>
+    <div id="container">
+        @RenderBody()
+    </div>
+</div>
+<script type="text/javascript" src="@Url.Content("~/Content/jquery/jquery.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/bootstrap-css/bootstrap.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/remarkable-bootstrap-notify/bootstrap-notify.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Scripts/General.js")"></script>
+
+    @RenderSection("scripts", required:false)
+</body>
+</html>

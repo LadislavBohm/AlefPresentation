@@ -1,0 +1,27 @@
+{
+  "name": "alef-presentation-mvc",
+  "homepage": "https://github.com/LadislavBohm/AlefPresentation",
+  "authors": [
+    "Ladislav Böhm <bohmladislav@gmail.com>"
+  ],
+  "description": "test",
+  "main": "bower.json",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "3.1.1",
+    "bootstrap-css": "3.1.1",
+    "remarkable-bootstrap-notify": "^3.1.3",
+    "bower-bootswatch-paper": "paper-less#*"
+  },
+  "install": {
+    "path": "Content"
+  }
+}

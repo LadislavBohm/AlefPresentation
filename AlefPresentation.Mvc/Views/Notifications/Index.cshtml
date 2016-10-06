@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@section styles
+{
+    <style type="text/css">
+        .separated {
+            margin-top: 1.2em;
+            margin-left:1em;
+        }
+    </style>
+}
+
+<h4>Zaslani lokalnich notifikaci</h4>
+<p>Napriklad pro informovani o vysledku AJAX requestu.</p>
+
+<div class="row separated">
+    <button type="button" class="btn btn-default" onclick="notifier.showDefault('jenom informacni zprava')">INFO</button>
+</div>
+<div class="row separated">
+    <button type="button" class="btn btn-success" onclick="notifier.showSuccess('vse je v poradku')">OK</button>
+</div>
+<div class="row separated">
+    <button type="button" class="btn btn-danger" onclick="notifier.showFailure('neco se pokazilo')">ERROR</button>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        var notifier = new NotificationHelper();
+    </script>
+}
