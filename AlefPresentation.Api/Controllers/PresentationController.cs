@@ -30,6 +30,12 @@ namespace AlefPresentation.Api.Controllers
             return _presentationService.GetEmpty(); 
         }
 
+        [HttpGet,Route("nonempty")]
+        public IEnumerable<Presentation> GetNonEmpty()
+        {
+            return _presentationService.GetAll().Where(p => p.Attendees != null && p.Attendees.Any());
+        }
+
         [HttpPatch, AlefAuthentication,Route("")]
         public IHttpActionResult UpdateDescription(int id, string description)
         {
@@ -58,6 +64,22 @@ namespace AlefPresentation.Api.Controllers
             }
 
             _presentationService.Delete(toDelete);
+
+            return Ok();
+        }
+
+        [HttpDelete,AlefAuthentication, Authorize(Roles = "admin"), Route("")]
+        public IHttpActionResult Delete([FromBody] List<int> ids)
+        {
+            foreach (var id in ids)
+            {
+                var toDelete = _presentationService.GetById(id);
+
+                if (toDelete != null)
+                {
+                    _presentationService.Delete(toDelete);
+                }
+            }
 
             return Ok();
         }
